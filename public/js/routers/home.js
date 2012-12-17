@@ -12,16 +12,12 @@ Routers.Home = Backbone.Router.extend({
 	index: function() {
 		var photos = new Collections.Photos();		
 		var view = new Views.Photos({collection: photos});
-		$('#photo-list').html('');
-		$('#photo-show').html('');
-		$("#container").html(view.render().el);
+		$("#home").html(view.render().el);
 	},
 	
 	photo: function(id) {
 		var photo = new Models.Photo({id: id});
 		var view  = new Views.PhotoShow({model: photo});
-		$('#photo-list').html('');
-		$('#photo-show').html('');		
-		$('#container').html(view.render().el);
+		$('#home').html(view.render().el);
 	}	
 });

@@ -1,38 +1,45 @@
-<!-- <script type="text/template" id="photos-template">
-	<%% _.each(photos, function(photo){ %>
-		<%% console.log(photo.images) %>
-		<li class="photo"><img src=<%%= photo.images.thumbnail.url %>></img></li>
-	<%% });%>
-</script> -->
-
-<div id="photos">
-	
-	<div id="photo-list">
-		
-	</div>
-	
-	<div id="photo-show">
-	</div>
-	
-	<div id="photo-thumbnail">
-		
-	</div>
-	
-	<script type="text/template" id="photo-template">
-		<li><a href="#"><img src=<%%= photo.images.thumbnail.url %>></img></a></li>
-	</script> 
-
-	<script type="text/template" id="photos-template">
-	</script>	
-	
-	<script type="text/template" id="photo-show-template">
-		<%% if (photo.data) { %>
-			<div class="photo-show-detail">
-				<img src=<%%= photo.data.images.standard_resolution.url %>></img>			
-			</div>			
-		<%%}%>
-		
-	</script>	
+<div id="home">
 	
 </div>
+
+<script type="text/template" id="photo-template">
+	<li><a href="#"><img src=<%%= photo.images.thumbnail.url %>></img></a></li>
+</script> 
+
+<script type="text/template" id="photo-slider-template">	
+	<div class="photo-image">	
+		<a href="#"><img src=<%%= photo.images.standard_resolution.url %>></img></a>
+	</div>
+	<div class="photo-info">
+		<div class="comments_count">Comments: <%%= photo.comments.count %></div>
+		<div class="likes_count">Likes: <%%= photo.likes.count %></div>
+	
+		<div class="comments">
+			<%% $.each(photo.comments.data, function(index, comment) { %>
+				<div class="name"><%%= comment.from.full_name %></div>
+				<div class="text"><%%= comment.text %></div>
+			<%% }); %>
+		</div>
+	</div>	
+</script> 
+
+
+<script type="text/template" id="photos-template">
+	<div class="photo-slider">
+		
+	</div>
+	
+	<div class="photo-list">
+		
+	</div>
+</script>	
+
+<script type="text/template" id="photo-show-template">
+	<%% if (photo.data) { %>
+		<div class="photo-show-detail">
+			<img src=<%%= photo.data.images.standard_resolution.url %>></img>			
+		</div>			
+	<%%}%>
+	
+</script>	
 
